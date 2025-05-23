@@ -45,11 +45,6 @@ app.post('/api/add-video', async (req, res) => {
 
 const PORT = process.env.PORT || 3001;
 
-const httpsOptions = {
-  key: fs.readFileSync('./server.key'),
-  cert: fs.readFileSync('./server.cert')
-};
-
-https.createServer(httpsOptions, app).listen(PORT, '0.0.0.0', () => {
-  console.log(`🚀 Servidor rodando em HTTPS na porta ${PORT}`);
+app.listen(PORT, '0.0.0.0', () => {
+  console.log(`🚀 Servidor rodando em HTTP na porta ${PORT}`);
 });
