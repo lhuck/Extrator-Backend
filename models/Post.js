@@ -1,15 +1,19 @@
+// Modelo recomendado (Post.js)
+/*
 import mongoose from 'mongoose';
 
-const postSchema = new mongoose.Schema({
-  title: String,
-  url: { type: String, unique: true },
+const PostSchema = new mongoose.Schema({
+  postUrl: { type: String, required: true, unique: true },
+  title: { type: String, required: true },
   thumb: String,
   tags: [String],
-  videos: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Video' }],
-  images: [String],
+  videos: [{
+    url: { type: String, required: true },
+    title: String,
+    order: Number
+  }],
   createdAt: { type: Date, default: Date.now }
 });
 
-const Post = mongoose.model('Post', postSchema);
-
-export default Post;
+export default mongoose.model('Post', PostSchema);
+*/
