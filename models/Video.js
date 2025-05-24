@@ -1,12 +1,15 @@
 import mongoose from 'mongoose';
 
-const videoSchema = new mongoose.Schema({
+const postSchema = new mongoose.Schema({
   title: String,
   url: { type: String, unique: true },
   thumb: String,
   tags: [String],
-}, { timestamps: true });
+  videos: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Video' }],
+  images: [String],
+  createdAt: { type: Date, default: Date.now }
+});
 
-const Video = mongoose.model('Video', videoSchema);
+const Post = mongoose.model('Post', postSchema);
 
-export default Video;
+export default Post;
